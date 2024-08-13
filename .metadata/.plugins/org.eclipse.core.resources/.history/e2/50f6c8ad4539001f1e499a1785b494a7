@@ -1,0 +1,29 @@
+package miscellaneous;
+
+public class DistinctNumbersDemo {
+
+	public static void main(String[] args) {
+		 {
+		      int arr[] = {1, 5, 9, 1, 4, 9, 6, 5, 9, 7,3,3, 11};
+		     // int n = arr.length;
+		      int r, c;
+		     System.out.print("The array is: ");
+		     for (r = 0; r<arr.length; r++)
+		     System.out.print(arr[r] + " ");
+		     System.out.print("\nThe distinct elements of above array are: ");
+		      for (r=0; r<arr.length; r++) {
+		         for (c=0; c<r; c++)
+		    	  
+		    		  if (arr[r] == arr[c])
+				            break;
+				         if (r == c)
+				         System.out.print( arr[r] + ", ");
+		    	  	  
+		        
+		      }
+		      
+		     
+		   }
+		   
+	}
+}

@@ -1,0 +1,25 @@
+package calenderUI;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class CalenderUI {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Drivers\\chromedriver-win64\\chromedriver.exe");
+		
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.path2usa.com/travel-companion/");
+		driver.manage().window().maximize();
+		Thread.sleep(5000);
+		driver.findElement(By.id("trave_date")).click();
+		
+		
+		
+	}
+
+}

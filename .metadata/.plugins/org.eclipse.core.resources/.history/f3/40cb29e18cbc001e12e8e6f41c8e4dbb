@@ -1,0 +1,32 @@
+package dockerProject;
+
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+public class DockerWithChrome {
+
+	public static void main(String[] args) throws MalformedURLException {
+		
+		ChromeOptions options = new ChromeOptions();
+		options.addExtensions(new File("http://crxextractor.com/"));
+		DesiredCapabilities dc = new DesiredCapabilities();
+		dc.setCapability(ChromeOptions.CAPABILITY, options);
+		//ChromeDriver driver = new ChromeDriver();
+
+		//DesiredCapabilities dc =  DesiredCapabilities.chrome();
+
+		URL url = new URL("http://localhost:4444/wd/hub");
+
+		RemoteWebDriver driver = new RemoteWebDriver(url, dc);
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		System.out.println("The title of the page is: "+driver.getTitle());
+		 driver.quit();
+	}
+
+}

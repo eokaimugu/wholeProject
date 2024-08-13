@@ -1,0 +1,54 @@
+package path_and_QueryParameters;
+
+import static io.restassured.RestAssured.*;
+import static io.restassured.matcher.RestAssuredMatchers.*;
+import static org.hamcrest.Matchers.*;
+
+import java.util.Map;
+
+import org.testng.annotations.Test;
+
+import io.restassured.response.Response;
+
+public class CookiesAndHeaders {
+	
+	//@Test(priority=1)
+	void testCookies()
+	{
+		given()
+		
+		.when()
+			.get("https://www.google.com/")
+			
+		.then()
+		.cookie("AEC", "Ackid1RbKzHHihMxTiY18g7WV2GU3A2ucbm4Gq7DEJcF44eq6b-NTh4PeKQ" )// the value of AEC keeps changing i.e it is dynamic
+		.log().all();
+		
+			
+	}
+	
+	@Test(priority=2)
+	void getCookiesInfo()
+	{
+		
+		Response res = given()
+		
+		.when()
+		.get("https://www.google.com/");
+	//Instead of validating the response in the then() section, you capture the entire response and put it in the Given() section	
+	//To get a single cookie info
+		String cookie_value = res.getCookie("AEC");
+		System.out.println("The value of the cookie is "+cookie_value);
+	
+		
+		//to get all cookies info		
+		Map<String, String>cookies_values = res.getCookies();
+		//System.out.println(cookies_values.keySet());
+		
+		for(String k:cookies_values.keySet()) {
+		
+		System.out.println(k+"   "+res.getCookie(k));
+		}
+	}
+
+}

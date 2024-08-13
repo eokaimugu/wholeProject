@@ -1,0 +1,4 @@
+14:04:34.664 [main] INFO  - ----Starting TC_001_AcctRegistrationTest-----
+14:04:35.644 [main] INFO  - Clicked on register button
+14:04:35.649 [main] INFO  - Entering customer details
+14:04:45.720 [main] ERROR - Test failed

@@ -1,0 +1,122 @@
+package authentication;
+import static io.restassured.RestAssured.*;
+import static io.restassured.matcher.RestAssuredMatchers.*;
+import static org.hamcrest.Matchers.*;
+
+import org.testng.annotations.Test;
+
+
+public class Authentications {
+	
+	@Test(priority=1)
+	void testBasicAuthentication()
+	{
+		given()
+			.auth().basic("postman", "password")
+		
+		.when()
+			.get("https://postman-echo.com/basic-auth")
+		
+		.then()
+		.statusCode(200)
+		.body("authenticated", equalTo(true))
+		.log().all();
+		
+		
+	}
+	
+	@Test(priority=2)
+	void testDigestAuthentication()
+	{
+		given()
+			.auth().digest("postman", "password")
+		
+		.when()
+			.get("https://postman-echo.com/basic-auth")
+		
+		.then()
+		.statusCode(200)
+		.body("authenticated", equalTo(true))
+		.log().all();
+		
+		
+	}
+
+	
+	@Test(priority=3)
+	void testPreemptiveAuthentication()
+	{
+		given()
+			.auth().preemptive().basic("postman", "password")
+		
+		.when()
+			.get("https://postman-echo.com/basic-auth")
+		
+		.then()
+		.statusCode(200)
+		.body("authenticated", equalTo(true))
+		.log().all();
+		
+		
+	}
+	
+	//@Test(priority=4)
+	void testBearerTokenAuth()
+	{
+		
+		String bearerToken = "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";
+		
+		given()
+			.headers("Authorization", "Bearer"+bearerToken)
+			.when()
+				.get("https://github.com/eokaimugu")
+			.then()
+				.statusCode(200)
+				.log().all();
+		
+		
+	}
+		//@Test(priority=5)
+		void testOath1Authentication()
+		
+		{
+			given()
+				.auth().oauth("consumerKey", "consumerSecret", "accessToken", "tokenSecret")//this is for oauth 1.0 authentication
+			.when()
+				.get("url")
+			.then()
+				.statusCode(200)
+				.log().all();
+		}
+		
+		
+				@Test(priority=6)
+				void testOath2Authentication()
+				
+				{
+					String bearerToken = "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";
+					
+					given()
+						.auth().oauth2(bearerToken)
+					.when()
+						.get("https://github.com/eokaimugu")
+					.then()
+						.statusCode(200)
+						.log().all();
+				}
+				
+				
+				@Test(priority=7)
+				void testAPIKeyAuthentication()
+				{
+					given()
+						.queryParam("appid", "63f7a7ce355a8c8b97d03121d37cd233")//API
+					
+					.when()
+						.get("https://openweathermap.org/find?utf8=%E2%9C%93&q=Kumasi")
+					.then()
+					.statusCode(200)
+					.log().all();
+				}
+	
+}

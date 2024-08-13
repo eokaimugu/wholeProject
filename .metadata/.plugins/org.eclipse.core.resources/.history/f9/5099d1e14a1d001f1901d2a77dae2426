@@ -1,0 +1,53 @@
+package arrayListConcept;
+
+import java.util.ArrayList;
+
+/*1) Heterogeneous data allowed
+2)	Insert order - preserved(Index)
+3) Duplicate elements allowed
+4)	Multiple nulls allowed*/
+
+class Employee {
+	int empno;
+	String empname;
+
+	void display() {
+		System.out.println(empno);
+	}
+
+}
+
+public class ArrayListDemo {
+
+	public static void main(String[] args) {
+		Employee empObj = new Employee();
+		ArrayList list = new ArrayList(); // This allows for heterogenous data
+
+		list.add(100);
+		list.add(10.5);
+		list.add("welcome");
+		list.add(true);
+		list.add(100);
+		list.add(null);
+		list.add("Kofi");
+		// list.add(empObj);
+		System.out.println(list.size());
+		System.out.println(list);
+
+		// to remove an item from an ArrayList----> list.remove and parse the index
+
+		System.out.println(list.remove(3));
+
+		// to read all the data from an ArrayList use the enhanced for loop
+
+		for (Object myList : list) {
+			System.out.println(myList);
+		}
+
+		list.clear(); // clears the list
+
+	}
+
+}
+
+

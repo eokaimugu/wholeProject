@@ -1,0 +1,29 @@
+{
+	"firstName" : "John",
+	"lastName" : "Kennedy",
+	
+	"address" : [
+	{
+		
+	"street" : "Main Street",
+	"city" : "Sokode",
+	"state" : "Togo"
+	},
+	
+	{
+		
+	"street" : "Pine Street",
+	"city" : "Accra",
+	"state" : "Ghana"
+	},
+	
+	{
+		
+	"street" : "Honeysuckle Street",
+	"city" : "Bolingbrook",
+	"state" : "Illinois"
+	}
+	
+	]
+		
+}

@@ -1,0 +1,10 @@
+package JDBCMySql;
+
+public class MySqlSelectCommand {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,25 @@
+package javaStreams;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class MoreStreamsDemo {
+
+	public static void main(String[] args) {
+		List <Integer> numList = Arrays.asList(15,21,45,3,92,52,28);
+		List <Integer> myList = new ArrayList <Integer>();
+		
+		for(int n:numList) {
+			
+			if(n%2==0) {
+				myList.add(n);
+			}
+				
+			
+		}
+		System.out.println(myList);
+		
+	}
+
+}

@@ -1,0 +1,45 @@
+package arrayListConcept;
+
+import java.util.HashSet;
+import java.util.Set;
+
+/*1) Hashset allows heterogenous data
+2)	Order is not preserved i. e. index concept not supported
+3)	Duplicated elements not allowed
+4)	Multiple nulls not allowed/only a single null is allowed*/
+
+public class HashSetDemo {
+
+	public static void main(String[] args) {
+
+		HashSet hs = new HashSet();
+		//Set myset = new HashSet();
+		//HashSet<String>set = new HashSet<String>();
+		
+		hs.add(100);
+		hs.add(10.5);
+		hs.add("welcome");
+		hs.add(null);
+		hs.add(null);
+		System.out.println(hs);
+		System.out.println(hs.size());
+		
+		System.out.println(hs.remove("welcome"));
+		
+		//insertion is not possible in hashset
+		//getting a specific value from a hashset is also not possible
+		
+		//Reading individual values from a hashset using for loop
+		
+		for(Object x:hs)
+		{
+			System.out.println(x);
+		}
+		
+		
+		
+		
+		
+	}
+
+}
